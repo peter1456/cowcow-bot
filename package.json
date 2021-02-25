@@ -1,0 +1,17 @@
+{
+  "name": "cowcow-bot",
+  "version": "1.0.0",
+  "description": "Discord Bot playing CowCow",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "jasperjr",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "eslint": "^7.20.0",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1"
+  }
+}
