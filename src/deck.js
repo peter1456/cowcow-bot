@@ -17,12 +17,12 @@ class Deck {
 			this.refresh();
 		}
 		const cardsDealed = _.sampleSize(this.deck, 5);
-		this.deck = this.deck.filter((card) => !cardsDealed.includes(card));
+		_.pull(this.deck, cardsDealed);
 		return cardsDealed;
 	}
 	refresh() {
 		this.deck = pokerDeck;
-    console.log("The deck is refreshed.")
+		console.log("The deck is refreshed.");
 	}
 }
 

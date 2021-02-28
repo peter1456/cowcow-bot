@@ -9,7 +9,7 @@ const CANVAS_WIDTH = CARD_WIDTH * 5 + CARD_PADDING * 4;
 const CANVAS_HEIGHT = CARD_HEIGHT;
 
 async function addCardToCanvas(card, position, ctx) {
-	image = await loadImage(card);
+	const image = await loadImage(card);
 	ctx.drawImage(
 		image,
 		position * (CARD_WIDTH + CARD_PADDING),
