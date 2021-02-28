@@ -1,5 +1,12 @@
-node_modules/
+# VS Code Config
 .vscode/
+
+# Node Modules
+node_modules/
+
+# PNG Cache
 cache/*
 !cache/.gitkeep
+
+# Secrets
 token.json
