@@ -55,7 +55,7 @@ function getHandCategory(hand) {
 	}
 	return _.maxBy(
 		possibleCategories,
-		(cat) => 4 - _.indexOf(HAND_CATEGORY_RANK, cat[0]) + cat[1]
+		(cat) => (4 - _.indexOf(HAND_CATEGORY_RANK, cat[0])) * 10 + cat[1]
 	);
 }
 
