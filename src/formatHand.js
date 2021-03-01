@@ -39,6 +39,7 @@ console.log(JSON.stringify(valuesToAttributeName));
 function handCategoryToAttributeName(handCategory) {
 	const handCategoryName = {
 		GoldCow: "金牛",
+		FourOfAKind: "四條",
 		CowCow: "牛牛",
 		NoCow: "冇牛",
 	};

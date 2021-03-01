@@ -24,7 +24,7 @@ function k_combinations(arr, k) {
 
 const fiveCThree = k_combinations([...Array(5).keys()], 3);
 
-const HAND_CATEGORY_RANK = ["GoldCow", "CowCow", "Cow", "NoCow"];
+const HAND_CATEGORY_RANK = ["GoldCow", "FourOfAKind", "CowCow", "Cow", "NoCow"];
 
 function getMaxCard(hand) {
 	return _.maxBy(hand, (card) => card[1] * 10 + (4 - card[0]));
@@ -34,6 +34,9 @@ function getHandCategory(hand) {
 	if (_.every(hand, (card) => card[1] + 1 === 10)) {
 		return ["GoldCow", 0];
 	}
+	if(_.includes(_.countBy(hand, (card) => card[1]), 4)) {
+		return ["FourOfAKind", 0];
+	}
 	let possibleCategories = [];
 	for (let combination of fiveCThree) {
 		const splittedHand = _.partition(hand, (card) =>
@@ -42,8 +45,10 @@ function getHandCategory(hand) {
 				card
 			)
 		);
-		const hasCow =
+		const sumToTenMultiple =
 			_.sumBy(splittedHand[0], (card) => card[1] + 1) % 10 === 0;
+		const hasThreeOfAKind = _.size(_.countBy(splittedHand[0], (card) => card[1])) === 1;
+		const hasCow = sumToTenMultiple || hasThreeOfAKind;
 		const pairSum = _.sumBy(splittedHand[1], (card) => card[1] + 1) % 10;
 		if (!hasCow) {
 			possibleCategories.push(["NoCow", 0]);
