@@ -1,7 +1,7 @@
 const _ = require("lodash");
 
 const suits = [...Array(4).keys()];
-const values = [...Array(13).keys()];
+const values = [...Array(9).keys()];
 const pokerDeck = suits.reduce(
 	(arr, suit) => arr.concat(values.map((val) => [suit, val])),
 	[]
@@ -27,3 +27,4 @@ class Deck {
 }
 
 module.exports = Deck;
+
