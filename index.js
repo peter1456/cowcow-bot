@@ -10,6 +10,9 @@ const deck = new Deck();
 const refreshEmbed = new MessageEmbed()
 						.setColor("#fc6404")
 						.setTitle("Deck refreshed!")
+const refreshAlertEmbed =  new MessageEmbed()
+							.setColor("#fc6404")
+							.setTitle("Less than 5 cards left. Deck will be refreshed!")
 
 client.on("ready", () => {
 	console.log("I am ready!");
@@ -26,6 +29,9 @@ client.on("message", async (message) => {
 			message.author
 		);
 		message.channel.send(formattedHand);
+		if (deck.size() < 5) {
+			message.channel.send(refreshAlertEmbed);
+		}
 	}
 	if (message.content === ">>refresh") {
 		deck.refresh();
