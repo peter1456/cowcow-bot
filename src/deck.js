@@ -17,14 +17,18 @@ class Deck {
 			this.refresh();
 		}
 		const cardsDealed = _.sampleSize(this.deck, 5);
-		_.pull(this.deck, cardsDealed);
+		console.log("Cards dealt:" + JSON.stringify(cardsDealed));
+		_.pull(this.deck, ...cardsDealed);
+		console.log("Resultant deck: " + JSON.stringify(this.deck));
 		return cardsDealed;
 	}
 	refresh() {
 		this.deck = pokerDeck;
 		console.log("The deck is refreshed.");
 	}
+	size() {
+		return _.size(this.deck);
+	}
 }
 
 module.exports = Deck;
-
