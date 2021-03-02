@@ -1,4 +1,4 @@
-const { Client } = require("discord.js");
+const { Client, MessageEmbed } = require("discord.js");
 const { token } = require("./token.json");
 const Deck = require("./src/deck");
 const formatHand = require("./src/formatHand");
@@ -6,6 +6,10 @@ const getHandAttributes = require("./src/getHandAttributes");
 
 const client = new Client();
 const deck = new Deck();
+
+const refreshEmbed = new MessageEmbed()
+						.setColor("#fc6404")
+						.setTitle("Deck refreshed!")
 
 client.on("ready", () => {
 	console.log("I am ready!");
@@ -22,6 +26,10 @@ client.on("message", async (message) => {
 			message.author
 		);
 		message.channel.send(formattedHand);
+	}
+	if (message.content === ">>refresh") {
+		deck.refresh();
+		message.channel.send(refreshEmbed);
 	}
 });
 
