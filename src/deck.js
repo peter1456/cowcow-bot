@@ -9,9 +9,10 @@ const pokerDeck = suits.reduce(
 
 class Deck {
 	constructor() {
-		this.deck = pokerDeck;
+		this.deck = [...pokerDeck];
 	}
 	deal() {
+		console.log(`Deck size: ${this.deck.length}`);
 		// deal 5 initially
 		if (this.deck.length < 5) {
 			this.refresh();
@@ -23,7 +24,7 @@ class Deck {
 		return cardsDealed;
 	}
 	refresh() {
-		this.deck = pokerDeck;
+		this.deck = [...pokerDeck];
 		console.log("The deck is refreshed.");
 	}
 	size() {
