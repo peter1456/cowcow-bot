@@ -34,7 +34,7 @@ function getHandCategory(hand) {
 	if (_.every(hand, (card) => card[1] + 1 === 10)) {
 		return ["GoldCow", 0];
 	}
-	const handSum = _.sumBy(hand, (card) => card[1]);
+	const handSum = _.sumBy(hand, (card) => card[1] + 1);
 	if (handSum >= 40) {
 		return ["CowSky", 0];
 	} else if (handSum <= 10) {
