@@ -28,7 +28,7 @@ client.on("message", async (message) => {
 			handAttributes,
 			message.author
 		);
-		message.channel.send(formattedHand);
+		await message.channel.send(formattedHand);
 		if (deck.size() < 5) {
 			message.channel.send(refreshAlertEmbed);
 		}
