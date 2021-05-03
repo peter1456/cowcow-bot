@@ -3,6 +3,7 @@ const { token } = require("./token.json");
 const Deck = require("./src/deck");
 const formatHand = require("./src/formatHand");
 const getHandAttributes = require("./src/getHandAttributes");
+const clearCache = require("./utils/clearCache")
 
 const client = new Client();
 const deck = new Deck();
@@ -32,6 +33,7 @@ client.on("message", async (message) => {
 		if (deck.size() < 5) {
 			message.channel.send(refreshAlertEmbed);
 		}
+		await clearCache()
 	}
 	if (message.content === ">>refresh") {
 		deck.refresh();
